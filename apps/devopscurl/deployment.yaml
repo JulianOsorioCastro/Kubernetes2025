@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopscurl
+  labels:
+    app: devopscurl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devopscurl
+  template:
+    metadata:
+      labels:
+        app: devopscurl
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
